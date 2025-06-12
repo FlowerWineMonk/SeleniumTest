@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 
 public class DriverManagerTest {
   private WebDriver driver;
-  static final String VENTION_PATH_LOCATOR = "//div[@class='sc-a0fab475-0 huvLO']";
+  static final String YOUTUBE_SEARCH_INPUT_LOCATOR = "//input[@name='search_query']";
 
   @BeforeMethod
   public void BeforeMethod() {
@@ -25,8 +25,9 @@ public class DriverManagerTest {
 
   @Test
   public void testOpenVentionTeams() {
-    driver.get("https://ventionteams.com/");
-    WebElement searchIcon = driver.findElement(By.xpath(VENTION_PATH_LOCATOR));
-    searchIcon.click();
+    driver.get("https://www.youtube.com");
+    WebElement searchInput = driver.findElement(By.xpath(YOUTUBE_SEARCH_INPUT_LOCATOR));
+    searchInput.sendKeys("Zoku Owarimonogatari : shots and ambiances");
+    searchInput.submit();
   }
 }

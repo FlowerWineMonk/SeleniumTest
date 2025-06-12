@@ -13,11 +13,9 @@ public class DriverManager {
 
   public static WebDriver getDriver() {
     if (driver == null) {
-//      ChromeOptions options = new ChromeOptions();
-//      options.setBinary("/opt/brave-bin/brave");
-//      driver = new ChromeDriver(options);
-      driver = new ChromeDriver();
-      driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+      ChromeOptions options = new ChromeOptions();
+      options.setBinary("/opt/brave-bin/brave");
+      driver = new ChromeDriver(options);
     }
     return driver;
   }
