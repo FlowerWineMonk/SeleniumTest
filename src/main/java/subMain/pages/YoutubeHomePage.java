@@ -4,6 +4,9 @@ import subMain.pages.AbstractPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import java.time.Duration;
 
 public class YoutubeHomePage extends AbstractPage {
   private static final String YOUTUBE_SEARCH_INPUT_LOCATOR = "//input[@name='search_query']";
@@ -25,7 +28,13 @@ public class YoutubeHomePage extends AbstractPage {
   }
 
   public void searchFor(String query) {
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    wait.until(ExpectedConditions.visibilityOf(searchInput));
+    wait.until(ExpectedConditions.elementToBeClickable(searchInput));
+
     searchInput.sendKeys(query);
+
+    wait.until(ExpectedConditions.elementToBeClickable(searchButton));
     searchButton.click();
   }
 
