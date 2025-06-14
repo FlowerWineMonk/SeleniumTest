@@ -8,7 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class DriverManagerTest {
+public class YoutubeVideoTest {
   @BeforeMethod
   public void BeforeMethod() {
     DriverManager.initDriver();
@@ -16,10 +16,10 @@ public class DriverManagerTest {
     driver.get("https://www.youtube.com");
   }
 
-//  @AfterMethod
-//  public void AfterMethod() {
-//    DriverManager.quitDriver();
-//  }
+  @AfterMethod
+  public void AfterMethod() {
+    DriverManager.quitDriver();
+  }
 
   @Test
   public void testOpenVentionTeams() {
