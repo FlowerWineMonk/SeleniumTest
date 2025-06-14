@@ -1,14 +1,8 @@
 package subMain.pages;
 
-import subMain.pages.AbstractPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class SignInPage extends AbstractPage {
   private static final String INPUT_BOX = "//input[@type='email']";
@@ -26,12 +20,7 @@ public class SignInPage extends AbstractPage {
   }
 
   public void enterEmailAndProceed(String email) {
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-    wait.until(ExpectedConditions.visibilityOf(signInBox));
-    signInBox.sendKeys(email);
-
-    wait.until(ExpectedConditions.elementToBeClickable(nextButton));
-    nextButton.click();
+    waitForVisibilityAndSendKeys(signInBox, email);
+    waitForVisibilityAndClick(nextButton);
   }
 }
