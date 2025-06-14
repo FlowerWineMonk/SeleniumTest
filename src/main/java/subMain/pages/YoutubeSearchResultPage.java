@@ -21,6 +21,7 @@ public class YoutubeSearchResultPage extends AbstractPage {
 
   public void clickFirstVideo() {
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
     wait.until(ExpectedConditions.elementToBeClickable(firstVideo));
     firstVideo.click();
   }
