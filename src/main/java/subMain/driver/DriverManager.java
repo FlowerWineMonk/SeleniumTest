@@ -18,6 +18,7 @@ public class DriverManager {
   public static void initDriver() {
     if(getDriver() == null) {
       ChromeOptions options = new ChromeOptions();
+      options.setBinary("/opt/brave-bin/brave");
       WebDriver driver = new ChromeDriver(options);
       setDriver(driver);
     }
